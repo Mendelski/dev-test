@@ -20,22 +20,22 @@ class Location
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $slug;
+    private ?string $slug;
 
     /**
      * @ORM\Column(type="decimal", precision=7, scale=5)
      */
-    private $latitude;
+    private ?string $latitude;
 
     /**
      * @ORM\Column(type="decimal", precision=7, scale=5)
      */
-    private $longitude;
+    private ?string $longitude;
 
     public function getId(): ?int
     {

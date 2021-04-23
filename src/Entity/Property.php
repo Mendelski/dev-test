@@ -6,6 +6,7 @@ use App\Repository\PropertyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Viny\Point;
 
 /**
  *
@@ -23,22 +24,22 @@ class Property
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    private ?string $title;
 
     /**
      * @ORM\Column(type="decimal", precision=7, scale=5)
      */
-    private $latitude;
+    private ?string $latitude;
 
     /**
      * @ORM\Column(type="decimal", precision=7, scale=5)
      */
-    private $longitude;
+    private ?string $longitude;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $bedrooms;
+    private ?int $bedrooms;
 
     /**
      * @ORM\Column(type="point")
@@ -113,7 +114,7 @@ class Property
         return $this->point;
     }
 
-    public function setPoint($point): self
+    public function setPoint(Point $point): self
     {
         $this->point = $point;
 

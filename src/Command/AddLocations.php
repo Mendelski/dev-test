@@ -13,7 +13,7 @@ use Viny\Point;
 class AddLocations extends Command {
 
     protected static $defaultName = 'import.locations';
-    CONST LOCATIONS = [
+    public const LOCATIONS = [
         [
             'name' => 'London',
             'slug' => 'london',
@@ -40,9 +40,9 @@ class AddLocations extends Command {
         ]
     ];
 
-    protected $em;
+    protected EntityManagerInterface $em;
 
-    function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em)
     {
         parent::__construct();
         $this->em = $em;
