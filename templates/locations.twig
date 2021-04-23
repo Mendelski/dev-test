@@ -1,6 +1,27 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Location</th>
+                <th scope="col">Latitude</th>
+                <th scope="col">Longitude</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for local in locations %}
+                <tr>
+                    <td>{{ local.id }}</td>
+                    <td><a href="#">{{ local.name }}</a></td>
+                    <td>{{ local.latitude }}</td>
+                    <td>{{ local.longitude }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
 {% endblock %}

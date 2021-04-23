@@ -19,32 +19,47 @@ class LocationRepository extends ServiceEntityRepository
         parent::__construct($registry, Location::class);
     }
 
-    // /**
-    //  * @return Location[] Returns an array of Location objects
-    //  */
-    /*
-    public function findByExampleField($value)
+//     /**
+//      * @return ?Location[] Returns an array of Location objects where
+//      */
+//    public function findLocationByName(string $name): ?array
+//    {
+//        return $this->createQueryBuilder('l')
+//            ->andWhere('l.name = :name')
+//            ->setParameter('name', $name)
+//            ->orderBy('l.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
+
+    /**
+     * @return ?Location[] Returns an array of all Location objects
+     */
+    public function findLocations(): ?array
     {
         return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
+            ->select('l.id', 'l.name', 'l.latitude', 'l.longitude')
             ->orderBy('l.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Location
-    {
-        return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+//    /**
+//     * @param string $name
+//     * @return Location|null
+//     * @throws \Doctrine\ORM\NonUniqueResultException
+//     */
+//    public function findOneLocationByName(string $name): ?Location
+//    {
+//        return $this->createQueryBuilder('l')
+//            ->andWhere('l.name = :val')
+//            ->setParameter('val', $name)
+//            ->getQuery()
+//            ->getOneOrNullResult()
+//        ;
+//    }
+
 }

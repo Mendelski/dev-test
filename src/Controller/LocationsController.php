@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Location;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,9 +15,11 @@ class LocationsController extends AbstractController
      */
     public function listAction(): Response
     {
-        $locations = [];
+        $locations = $this->getDoctrine()
+            ->getRepository(Location::class)
+            ->findLocations();
 
-        return $this->render('locations.twig', $locations);
+        return $this->render('locations.twig', ['locations' => $locations]);
     }
 
     /**
