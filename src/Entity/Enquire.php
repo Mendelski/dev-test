@@ -20,17 +20,17 @@ class Enquire
     /**
      * @ORM\ManyToOne(targetEntity=Property::class, inversedBy="enquires")
      */
-    private $property;
+    private ?Property $property;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $message;
+    private ?string $message;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $email;
+    private ?string $email;
 
     public function getId(): ?int
     {
