@@ -10,11 +10,20 @@ class LocationsController extends AbstractController
 {
 
     /**
-    * @Route("/")
-    */
-    public function homePage(): Response
+     * @Route("/location")
+     */
+    public function listAction(): Response
     {
+        $locations = [];
 
-        return $this->render('home.twig');
+        return $this->render('locations.twig', $locations);
+    }
+
+    /**
+     * @Route("/location/{locate}")
+     */
+    public function locateAction(string $locate): Response
+    {
+        return $this->render('locations.twig', ['locate' => $locate]);
     }
 }
