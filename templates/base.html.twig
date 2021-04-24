@@ -22,18 +22,18 @@
     {% endblock %}
 </head>
 <body>
-<ul class="nav justify-content-center">
+<ul class="nav justify-content-center border-bottom border-dark nav-dark p-2 m-4">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{{ path('index') }}">Instructions</a>
+        <a class="nav-link text-dark" aria-current="page" href="{{ path('index') }}">Instructions</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ path('location_list') }}">Locations</a>
+        <a class="nav-link text-dark" href="{{ path('location_list') }}">Locations</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ path('property_list') }}">Property</a>
+        <a class="nav-link text-dark" href="{{ path('property_list') }}">Property</a>
     </li>
 </ul>
-<hr>
+
 {% block body %}{% endblock %}
 </body>
 </html>

@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
 body {
+    font-family: "Poppins";
     background-color: lightgray;
     padding: 10px;
+}
+
+.table-lightgray {
+    background-color: lightgray;
+    border-color: black;
 }
