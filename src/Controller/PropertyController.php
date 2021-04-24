@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PropertyController extends AbstractController
 {
     /**
-     * @Route("/property")
+     * @Route("/property", name="property_list")
      *
      * @return Response
      */

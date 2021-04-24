@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomepageController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="index")
      */
     final public function listAction(): Response
     {

@@ -15,7 +15,8 @@
             {% for local in locations %}
                 <tr>
                     <td>{{ local.id }}</td>
-                    <td><a href="#" class="text-dark">{{ local.name }}</a></td>
+                    <td><a href="{{ path('location', { 'slug': local.slug }) }}" class="text-dark">{{ local.name }}</a>
+                    </td>
                     <td>{{ local.latitude }}</td>
                     <td>{{ local.longitude }}</td>
                 </tr>

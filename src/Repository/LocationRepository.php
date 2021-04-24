@@ -40,7 +40,7 @@ class LocationRepository extends ServiceEntityRepository
     public function findLocations(): ?array
     {
         return $this->createQueryBuilder('l')
-            ->select('l.id', 'l.name', 'l.latitude', 'l.longitude')
+            ->select('l.id', 'l.name', 'l.slug', 'l.latitude', 'l.longitude')
             ->orderBy('l.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()

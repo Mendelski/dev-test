@@ -9,9 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LocationsController extends AbstractController
 {
-
     /**
-     * @Route("/location")
+     * @Route("/location", name="location_list")
      */
     public function listAction(): Response
     {
@@ -23,10 +22,10 @@ class LocationsController extends AbstractController
     }
 
     /**
-     * @Route("/location/{locate}")
+     * @Route("/location/{slug}", name="location")
      */
-    public function locateAction(string $locate): Response
+    public function localAction(string $local): Response
     {
-        return $this->render('locations.twig', ['locate' => $locate]);
+        return $this->render('locations.twig', ['local' => $local]);
     }
 }
