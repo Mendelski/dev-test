@@ -43,15 +43,14 @@ class FindProperty
                 $nearProperties[] = $house;
             }
         }
-
         return $nearProperties;
     }
 
-//    public function findProperty(int $id): Property
-//    {
-//        // return property with given id
-//        return new Property();
-//    }
+    public function findPropertyById(int $id): Property
+    {
+        // return property with given id
+        return new Property();
+    }
 
     public static function getDistanceBetweenPoints(
         string $latitude1,
