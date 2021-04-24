@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Location;
+use App\Service\FindProperty;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class LocationsController extends AbstractController
 {
     /**
-     * @Route("/location", name="location_list")
+     * @Route("/location", name="location_list", methods="GET")
      */
     public function listAction(): Response
     {
@@ -22,10 +23,18 @@ class LocationsController extends AbstractController
     }
 
     /**
-     * @Route("/location/{slug}", name="location")
+     * @Route("/location/{slug}", name="location", methods="GET")
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @requires FindProperty
      */
-    public function localAction(string $local): Response
+    public function localAction(string $slug, FindProperty $findProperty): Response
     {
-        return $this->render('locations.twig', ['local' => $local]);
+        /** @var Location $location */
+        $location = $this->getDoctrine()
+            ->getRepository(Location::class)
+            ->findLocationBySlug($slug);
+
+        $properties = $findProperty->findProperties($location);
+        return $this->render('property.twig', ['properties' => $properties]);
     }
 }

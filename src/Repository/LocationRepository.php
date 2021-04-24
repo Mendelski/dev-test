@@ -47,19 +47,18 @@ class LocationRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-//    /**
-//     * @param string $name
-//     * @return Location|null
-//     * @throws \Doctrine\ORM\NonUniqueResultException
-//     */
-//    public function findOneLocationByName(string $name): ?Location
-//    {
-//        return $this->createQueryBuilder('l')
-//            ->andWhere('l.name = :val')
-//            ->setParameter('val', $name)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    /**
+     * @param string $slug
+     * @return Location|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findLocationBySlug(string $slug): ?Location
+    {
+        return $this->createQueryBuilder('l')
+            ->andWhere('l.slug = :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 
 }
