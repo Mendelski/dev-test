@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1 class="d-flex justify-content-center">List of Locations</h1>
+    <h1 class="d-flex justify-content-center">{{ "locations.title"|trans }}</h1>
     <div class="container">
         <table class="table table-hover table-active">
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Location</th>
-                <th scope="col">Latitude</th>
-                <th scope="col">Longitude</th>
+                <th scope="col">{{ "entities.location"|trans }}</th>
+                <th scope="col">{{ "general.lat"|trans }}</th>
+                <th scope="col">{{ "general.long"|trans }}</th>
             </tr>
             </thead>
             <tbody>

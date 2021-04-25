@@ -2,56 +2,46 @@
 {% block body %}
     <div class="container">
 
-        <h1 class="d-flex justify-content-center">Welcome to the DEV TEST</h1>
-        <p class="d-flex justify-content-center">Thank you for taking part on our test</p>
+        <h1 class="d-flex justify-content-center">{{ "home.title"|trans }}</h1>
+        <p class="d-flex justify-content-center">{{ "home.subtitle"|trans }}</p>
 
-        <h3>Step 1: <small>Creating Routes and Displaying elements</small></h3>
+        <h3>{{ "home.steps.first.title"|trans }} <small>{{ "home.steps.first.description"|trans }}</small></h3>
         <ul>
-            <li>Create a page called Locations with the url "/location".</li>
-            <li>This page will have a list of all elements from <b>"Location"</b> entity.</li>
-            <li>Each element should be a link to the location page that will be created on step 2.</li>
+            <li> {{ "home.steps.first.item1"|trans }}</li>
+            <li> {{ "home.steps.first.item2"|trans }}</li>
+            <li> {{ "home.steps.first.item3"|trans }}</li>
         </ul>
 
-        <h3>Step 2: <small>Database Query and Advanced Routes</small></h3>
+        <h3>{{ "home.steps.second.title"|trans }} <small>{{ "home.steps.second.description"|trans }}</small></h3>
         <ul>
-            <li>Create a page for each <b>"Location"</b> using the slug as reference for the url eg. "/location/london"
-            </li>
-            <li>Display on this page the elements from the entity <b>"Property"</b> that are within 1 mile range from
-                the
-                <b>"Location"</b> using the Latitude and Longitude as the measure method.
-            </li>
-            <li>Each element should be a link to the "Property" page that will be created on step 3.</li>
+            <li> {{ "home.steps.second.item1"|trans }}</li>
+            <li> {{ "home.steps.second.item2"|trans }}</li>
+            <li> {{ "home.steps.second.item3"|trans }}</li>
         </ul>
 
-        <h3>Step 3: <small>Forms</small></h3>
+        <h3>{{ "home.steps.third.title"|trans }} <small>{{ "home.steps.third.decription"|trans }}</small></h3>
         <ul>
-            <li>Create a page for each <b>"Property"</b> using the ID as reference for the url eg. "/property/2"</li>
-            <li>This page will show all details from the Property object plus the <b>"Enquiry"</b> objects that are
-                related
-                to this property
-            </li>
-            <li>This page will have a <b>Enquire</b> form that once submitted will save to the database the enquire
-                (message
-                and email).
-            </li>
-            <li>This form must have email validation and only accept valid emails.</li>
+            <li> {{ "home.steps.third.item1"|trans }}</li>
+            <li> {{ "home.steps.third.item2"|trans }}</li>
+            <li> {{ "home.steps.third.item3"|trans }}</li>
+            <li> {{ "home.steps.third.item4"|trans }}</li>
         </ul>
         <hr>
         <div class="row">
             <div class="col-6">
-                <h3>Notes:</h3>
+                <h3>{{ "notes.title"|trans }}</h3>
                 <ul>
-                    <li>Please demonstrate familiarity with the symfony ecosystem.</li>
-                    <li>Completing and implementing the services "FindLocation" and "FindProperty" is desired.</li>
+                    <li>{{ "notes.item1"|trans }}</li>
+                    <li>{{ "notes.item2"|trans }}</li>
                 </ul>
             </div>
 
             <div class="col-6">
-                <h3>Entities:</h3>
+                <h3>{{ "entities.title"|trans }}</h3>
                 <ul>
-                    <li>Location</li>
-                    <li>Enquire</li>
-                    <li>Property</li>
+                    <li>{{ "entities.location"|trans }}</li>
+                    <li>{{ "entities.enquire"|trans }}</li>
+                    <li>{{ "entities.property"|trans }}</li>
                 </ul>
             </div>
         </div>

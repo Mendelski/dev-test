@@ -6,7 +6,7 @@
     <link rel="shortcut icon" type="image/jpg"
           href="https://begimoveis.com.br/wp-content/uploads/2017/03/house-icon.png"/>
 
-    <title>{% block title %}Dev Test!{% endblock %}</title>
+    <title>{% block title %}{{ "tab.title"|trans }}{% endblock %}</title>
 
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
@@ -19,10 +19,10 @@
 <body>
 <ul class="nav justify-content-center border-bottom border-dark nav-dark p-2 m-4">
     <li class="nav-item">
-        <a class="nav-link text-dark" aria-current="page" href="{{ path('index') }}">Instructions</a>
+        <a class="nav-link text-dark" aria-current="page" href="{{ path('index') }}">{{ "menu.instructions"|trans }}</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" href="{{ path('location_list') }}">Locations</a>
+        <a class="nav-link text-dark" href="{{ path('location_list') }}">{{ "menu.locations"|trans }}</a>
     </li>
 </ul>
 

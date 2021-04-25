@@ -1,0 +1,57 @@
+general:
+  lat: Latitude
+  long: Longitude
+  bedrooms: Bedrooms
+  title: Title
+  lorem_ipsum: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  details: Details
+  id: dentification
+
+tab:
+  title: Dev Test!
+
+menu:
+  instructions: Instructions
+  locations: Locations
+
+home:
+  title: Welcome to the DEV TEST
+  subtitle: Thank you for taking part on our test
+  steps:
+    first:
+      title: "Step 1: "
+      description: Creating Routes and Displaying elements
+      item1: Create a page called Locations with the url "/location".
+      item2: This page will have a list of all elements from "Location" entity.
+      item3: Each element should be a link to the location page that will be created on step 2.
+    second:
+      title: "Step 2: "
+      description: Database Query and Advanced Routes
+      item1: Create a page for each "Location" using the slug as reference for the url eg. "/location/london"
+      item2: Display on this page the elements from the entity "Property" that are within 1 mile range from the "Location" using the Latitude and Longitude as the measure method.
+      item3: Each element should be a link to the "Property" page that will be created on step 3.
+    third:
+      title: "Step 3: "
+      decription: Forms
+      item1: Create a page for each "Property" using the ID as reference for the url eg. "/property/2".
+      item2: This page will show all details from the Property object plus the "Enquiry" objects that are related to this property
+      item3: This page will have a Enquire form that once submitted will save to the database the enquire (message and email).
+      item4: This form must have email validation and only accept valid emails.
+
+notes:
+  title: "Notes: "
+  item1: Please demonstrate familiarity with the symfony ecosystem.
+  item2: Completing and implementing the services "FindLocation" and "FindProperty" is desired.
+
+entities:
+  title: "Entities: "
+  location: Location
+  enquire: Enquire
+  property: Property
+
+locations:
+  title: List of Locations
+
+property:
+  description: Little Description of Local
+  buyBtn: Buy this property!

@@ -1,0 +1,57 @@
+general:
+  lat: Latitude
+  long: Longitude
+  bedrooms: Quartos
+  title: Título
+  lorem_ipsum: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  details: Detalhes
+  id: Identificação
+
+tab:
+  title: Teste de Denvolvimento!
+
+menu:
+  instructions: Instruções
+  locations: Localizações
+
+home:
+  title: Bem-vindo ao DEV TEST
+  subtitle: Obrigado por participar do nosso teste
+  steps:
+    first:
+      title: "Passo 1: "
+      description: Criar Rotas e Exibir elementos
+      item1: Crie uma página chamada Locais com o url "/location".
+      item2: Esta página terá uma lista de todos os elementos da entidade "location" .
+      item3: Cada elemento deve ser um link para a página de localização que será criada na etapa 2.
+    second:
+      title: "Passo 2: "
+      description: Consultas no Banco e Rotas Avançadas
+      item1: Crie uma página para cada "Local" usando o slug como referência para o url, por exemplo. "/location/london"
+      item2: Exibe nesta página os elementos da entidade "Property" que estão dentro do intervalo de 1 milha do "Local" usando Latitude e Longitude como o método de medida.
+      item3: Cada elemento deve ser um link para a página "Property" que será criada na etapa 3.
+    third:
+      title: "Passo 3: "
+      decription: Formulários
+      item1: Crie uma página para cada "Propriedade" usando o ID como referência para o url, por exemplo. "/property/2".
+      item2: Esta página irá mostrar todos os detalhes do objeto Propriedade mais os objetos "Consulta" que estão relacionados a esta propriedade
+      item3: Esta página terá um formulário de consulta que, uma vez enviado, salvará no banco de dados a consulta  (mensagem e e-mail).
+      item4: Este formulário deve ter validação de email e aceitar apenas emails válidos.
+
+notes:
+  title: "Notas: "
+  item1: Por favor, demonstre familiaridade com o ecossistema Symfony.
+  item2: Concluir e implementar os serviços "FindLocation" e "FindProperty" é desejado.
+
+entities:
+  title: "Entidades: "
+  location: Locais
+  enquire: Consulta
+  property: Propriedade
+
+locations:
+  title: Lista de Locais
+
+property:
+  description: Breve descrição do Local
+  buyBtn: Compre esta Residência!

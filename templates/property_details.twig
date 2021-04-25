@@ -47,11 +47,11 @@
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab"
-                           aria-controls="details" aria-selected="true">Details</a>
+                           aria-controls="details" aria-selected="true">{{ 'general.details'|trans }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="enquire-tab" data-toggle="tab" href="#enquire" role="tab"
-                           aria-controls="enquire" aria-selected="false">Enquire</a>
+                           aria-controls="enquire" aria-selected="false">{{ "entities.enquire"|trans }}</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -63,30 +63,20 @@
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <h6>Identification: {{ property.id }}</h6>
-                                <h6>Latitude: {{ property.latitude }}</h6>
+                                <h6>{{ "general.id"|trans }}: {{ property.id }}</h6>
+                                <h6>{{ "general.lat"|trans }}: {{ property.latitude }}</h6>
                             </div>
                             <div class="col-6">
-                                <h6>Bedrooms: {{ property.bedrooms }}</h6>
-                                <h6>Longitude: {{ property.longitude }}</h6>
+                                <h6>{{ "general.bedrooms"|trans }}: {{ property.bedrooms }}</h6>
+                                <h6>{{ "general.long"|trans }}: {{ property.longitude }}</h6>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <p class="d-flex justify-content-center pt-3 font-weight-bold">Little Description of
-                                    Local</p>
-                                <p class="small font-italic">Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                    It has survived not only five centuries, but also the leap into electronic
-                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
-                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
-                                    Ipsum.</p>
-                                <button type="button" class="btn btn-primary d-flex justify-content-center w-100">Buy
-                                    this property!
-                                </button>
+                                <p class="d-flex justify-content-center pt-3 font-weight-bold">{{ "property.description"|trans }}</p>
+                                <p class="small font-italic">{{ "general.lorem_ipsum"|trans }}</p>
+                                <button type="button"
+                                        class="btn btn-primary d-flex justify-content-center w-100">{{ "property.buyBtn"|trans }}</button>
                             </div>
                         </div>
                     </div>
