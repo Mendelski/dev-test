@@ -7,7 +7,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Viny\Point;
 
 class AddProperties extends Command {
@@ -28,7 +27,7 @@ class AddProperties extends Command {
     {
         parent::__construct();
         $this->em = $em;
-        $this->em->getConnection()->getConfiguration()->setSQLLogger(null);
+        $this->em->getConnection()->getConfiguration()->setSQLLogger();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

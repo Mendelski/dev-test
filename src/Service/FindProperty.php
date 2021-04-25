@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\Enquire;
 use App\Entity\Location;
 use App\Entity\Property;
 use App\Repository\PropertyRepository;
@@ -11,12 +12,12 @@ class FindProperty
 {
     /** @var EntityManagerInterface */
     private EntityManagerInterface $entityManager;
-
+    
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }
-
+    
     /**
      * @param \App\Entity\Location $location
      * @param int $rangeMiles
@@ -28,19 +29,19 @@ class FindProperty
     {
         $lat = $location->getLatitude();
         $long = $location->getLongitude();
-
+        
         $nearProperties = [];
-    
+        
         $properties = $this->entityManager
             ->getRepository(Property::class)
             ->findProperties()
             ->getQuery()
             ->getResult();
-
+        
         foreach ($properties as $house) {
             $lat2 = $house['latitude'];
             $long2 = $house['longitude'];
-
+            
             $distance = self::getDistanceBetweenPoints($lat, $long, $lat2, $long2);
             if ($distance >= $rangeMiles) {
                 $nearProperties[] = $house;
@@ -56,7 +57,7 @@ class FindProperty
             ->getQuery()
             ->getOneOrNullResult();
     }
-
+    
     public static function getDistanceBetweenPoints(
         string $latitude1,
         string $longitude1,
@@ -65,17 +66,17 @@ class FindProperty
     ): float
     {
         $theta = $longitude1 - $longitude2;
-
+        
         $distance = (
                 sin(deg2rad($latitude1)) * sin(deg2rad($latitude2))
             ) + (
                 cos(deg2rad($latitude1)) * cos(deg2rad($latitude2)) * cos(deg2rad($theta))
             );
-    
+        
         $distance = acos($distance);
         $distance = rad2deg($distance);
         $distance *= 60 * 1.1515;
-    
+        
         return (round($distance, 2));
     }
     
@@ -88,4 +89,20 @@ class FindProperty
         return $this->entityManager->getRepository(Property::class);
     }
     
+    public function setEnquireToDB($form, int $id): void
+    {
+        /** @var \Symfony\Component\Form\Form $form */
+        if ($form->isValid()) {
+            /** @var Enquire $enquire */
+            $enquire = $form->getData();
+            
+            $property = $this->findOneById($id);
+            
+            $enquire->setProperty($property);
+            
+            $this->entityManager->persist($enquire);
+            $this->entityManager->flush();
+        }
+        
+    }
 }
