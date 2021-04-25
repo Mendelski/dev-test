@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% set titleSlices = property.title|split(' ') %}
+    {% set titleSlices = property.title|split('in') %}
     {% set local = titleSlices|last %}
 
     <h1 class="d-flex justify-content-center pb-5">{{ local }}</h1>
