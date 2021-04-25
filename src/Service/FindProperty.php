@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\Location;
 use App\Entity\Property;
+use App\Repository\PropertyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 class FindProperty
@@ -29,10 +30,12 @@ class FindProperty
         $long = $location->getLongitude();
 
         $nearProperties = [];
-
+    
         $properties = $this->entityManager
             ->getRepository(Property::class)
-            ->findProperties();
+            ->findProperties()
+            ->getQuery()
+            ->getResult();
 
         foreach ($properties as $house) {
             $lat2 = $house['latitude'];
@@ -45,11 +48,13 @@ class FindProperty
         }
         return $nearProperties;
     }
-
-    public function findPropertyById(int $id): Property
+    
+    public function findOneById(int $id): Property
     {
-        // return property with given id
-        return new Property();
+        return $this->getPropertyRepository()
+            ->findOneById($id)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
     public static function getDistanceBetweenPoints(
@@ -66,12 +71,21 @@ class FindProperty
             ) + (
                 cos(deg2rad($latitude1)) * cos(deg2rad($latitude2)) * cos(deg2rad($theta))
             );
-
+    
         $distance = acos($distance);
         $distance = rad2deg($distance);
         $distance *= 60 * 1.1515;
-
+    
         return (round($distance, 2));
     }
-
+    
+    
+    /**
+     * @return PropertyRepository
+     */
+    private function getPropertyRepository(): PropertyRepository
+    {
+        return $this->entityManager->getRepository(Property::class);
+    }
+    
 }

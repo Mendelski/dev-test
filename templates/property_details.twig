@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% set titleSlices = property.title|split(' ') %}
+    {% set local = titleSlices|last %}
+
+    <h1 class="d-flex justify-content-center pb-5">{{ local }}</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-7">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100"
+                                 src="https://media.rightmove.co.uk/168k/167246/105718100/167246_1288_IMG_15_0000.jpeg"
+                                 alt="House">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100"
+                                 src="https://media.rightmove.co.uk/168k/167246/105718100/167246_1288_IMG_04_0000.jpeg"
+                                 alt="Inside House">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100"
+                                 src="https://media.rightmove.co.uk/168k/167246/105718100/167246_1288_IMG_07_0000.jpeg"
+                                 alt="Restroom">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-5">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab"
+                           aria-controls="details" aria-selected="true">Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="enquire-tab" data-toggle="tab" href="#enquire" role="tab"
+                           aria-controls="enquire" aria-selected="false">Enquire</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4 class="d-flex justify-content-center p-2">{{ property.title }}</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <h6>Identification: {{ property.id }}</h6>
+                                <h6>Latitude: {{ property.latitude }}</h6>
+                            </div>
+                            <div class="col-6">
+                                <h6>Bedrooms: {{ property.bedrooms }}</h6>
+                                <h6>Longitude: {{ property.longitude }}</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="d-flex justify-content-center pt-3 font-weight-bold">Little Description of
+                                    Local</p>
+                                <p class="small font-italic">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum.</p>
+                                <button type="button" class="btn btn-primary d-flex justify-content-center w-100">Buy
+                                    this property!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="enquire" role="tabpanel" aria-labelledby="enquire-tab">
+                        <div class="container-fluid">
+                            {{ form_start(form) }}
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+

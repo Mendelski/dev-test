@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Property;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -18,31 +19,25 @@ class PropertyRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Property::class);
     }
-
+    
     /**
-     * @return Property[] Returns an array of Property objects
+     * @return \Doctrine\ORM\QueryBuilder
+     * Returns an array of Property objects
      */
-
-    public function findProperties(): array
+    
+    public function findProperties(): QueryBuilder
     {
         return $this->createQueryBuilder('p')
             ->select('p.id', 'p.title', 'p.bedrooms', 'p.point', 'p.latitude', 'p.longitude')
             ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult();
+            ->setMaxResults(10);
     }
-
-
-    /**
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     */
-    public function findPropertyById(int $id): ?Property
+    
+    
+    public function findOneById(int $id): QueryBuilder
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.id = :id')
-            ->setParameter('id', $id)
-            ->getQuery()
-            ->getOneOrNullResult();
+            ->setParameter('id', $id);
     }
 }

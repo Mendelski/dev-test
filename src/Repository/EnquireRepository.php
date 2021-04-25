@@ -18,11 +18,11 @@ class EnquireRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Enquire::class);
     }
-
-    // /**
-    //  * @return Enquire[] Returns an array of Enquire objects
-    //  */
-    /*
+    
+    /**
+     * @return Enquire[] Returns an array of Enquire objects
+     */
+    
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('e')
@@ -34,9 +34,8 @@ class EnquireRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
-
-    /*
+    
+    
     public function findOneBySomeField($value): ?Enquire
     {
         return $this->createQueryBuilder('e')
@@ -46,5 +45,4 @@ class EnquireRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
 }

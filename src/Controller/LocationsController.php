@@ -18,17 +18,21 @@ class LocationsController extends AbstractController
         $locations = $findLocation->findLocations();
         return $this->render('locations.twig', ['locations' => $locations]);
     }
-
+    
     /**
      * @Route("/location/{slug}", name="location", methods="GET")
      * @throws \Doctrine\ORM\NonUniqueResultException
      * @requires FindProperty
      */
-    public function localAction(string $slug, FindProperty $findProperty, FindLocation $findLocation): Response
+    public function localAction(
+        string $slug,
+        FindProperty $findProperty,
+        FindLocation $findLocation
+    ): Response
     {
         $location = $findLocation->findLocationBySlug($slug);
         $properties = $findProperty->findProperties($location);
-
+        
         return $this->render('property.twig', ['properties' => $properties]);
     }
 }

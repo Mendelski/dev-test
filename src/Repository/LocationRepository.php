@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Location;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -18,32 +19,29 @@ class LocationRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Location::class);
     }
-
+    
     /**
-     * @return ?Location[] Returns an array of all Location objects
+     * @return QueryBuilder Returns an array of all Location objects
      */
-    public function findLocations(): ?array
+    public function findLocations(): QueryBuilder
     {
         return $this->createQueryBuilder('l')
             ->select('l.id', 'l.name', 'l.slug', 'l.latitude', 'l.longitude')
             ->orderBy('l.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult();
+            ->setMaxResults(10);
+        
     }
-
+    
     /**
      * @param string $slug
-     * @return Location|null
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     *
+     * @return QueryBuilder
      */
-    public function findLocationBySlug(string $slug): ?Location
+    public function findOneBySlug(string $slug): QueryBuilder
     {
         return $this->createQueryBuilder('l')
             ->andWhere('l.slug = :slug')
-            ->setParameter('slug', $slug)
-            ->getQuery()
-            ->getOneOrNullResult();
+            ->setParameter('slug', $slug);
     }
 
 }

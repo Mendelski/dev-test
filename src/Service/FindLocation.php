@@ -22,7 +22,9 @@ class FindLocation
     public function findLocations(): array
     {
         return $this->getLocationRepository()
-            ->findLocations();
+            ->findLocations()
+            ->getQuery()
+            ->getResult();
     }
 
     /**
@@ -33,7 +35,9 @@ class FindLocation
     public function findLocationBySlug(string $slug): Location
     {
         return $this->getLocationRepository()
-            ->findLocationBySlug($slug);
+            ->findOneBySlug($slug)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
     /**
