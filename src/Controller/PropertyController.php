@@ -13,15 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PropertyController extends AbstractController
 {
-    /**
-     * @Route("/property", name="property_list", methods="GET")
-     *
-     * @return Response
-     */
-    public function listAction(): Response
-    {
-        return $this->render('home.twig');
-    }
     
     /**
      * @Route("/property/{id}", name="property_details", methods={"GET","POST"})
